@@ -34,7 +34,7 @@ function BuildHeader(section : string){
 
     for (const line of lines) {
             for (const entry of headerSchema) {
-                 if (line.toLowerCase().includes(entry.keyText.toLowerCase())) {
+                if (line.trim().toLowerCase().startsWith(entry.keyText.toLowerCase())){
                     const value = CleanLine(line, entry.keyText);
                     entry.parser(headerObj, value);
                 }
