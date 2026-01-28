@@ -1,0 +1,1 @@
+type profession = "Manuel" | "Non-manuel" | "Hybride"

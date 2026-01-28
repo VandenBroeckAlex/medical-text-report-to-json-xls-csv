@@ -1,35 +1,46 @@
 
-import {Heading} from "./models/heading"
+import {Header} from "./models/header"
 import * as fs from 'fs';
-const lignes  = fs.readFileSync('../BENOIT_Sophie_S0.txt','utf8').split("SECTION")
+const Sections  = fs.readFileSync('../BENOIT_Sophie_S0.txt','utf8').split("SECTION")
 // .split(/\r?\n/);;
 
+let header = new Header() 
 
 // 1 header
-lignes.forEach((ligne, index) => {
+Sections.forEach((section, index) => {
+    
 
-
-    if(ligne.includes("FICHE BILAN SCALENEO")){
-        BuildHeader(ligne)
+    if(section.includes("FICHE BILAN SCALENEO")){
+        header = BuildHeader(section)
     }
 });
-
+    console.log(header)
 
 
 
 
 function BuildHeader(section : string){
 
-    console.log("Section :" + section)
     const lines = SeparateLines(section)
-    const header = new Heading()
 
-    let keys = header.GetKey()
+    const headerObj = new Header()
+    const schema = Header.schema
 
-    lines.forEach(line => {
+    let i = 0
+    for (const line of lines) {
         
-    });
-    
+        i++
+        console.log(i + " " +line)
+            for (const key in schema) {
+                if (line.toLowerCase().includes(key)) {
+                    const value = CleanLine(line.toLowerCase(),key);
+                    console.log(value)
+                    schema[key as keyof Header](headerObj, value);
+                }
+            }
+        }
+    console.log(headerObj)
+    return headerObj;
 }
 
 function SeparateLines(section : string) : string[]{
@@ -38,10 +49,11 @@ function SeparateLines(section : string) : string[]{
 
 function CleanLine(line : string, key : string) : string {
 
-    line.replace(key,"")
-    line.replace(":","")
+    line = line.replace(key,"")
+    line = line.replace(":","")
 
-    line.trim()
+    line = line.trim()
 
     return line
 }
+
