@@ -6,8 +6,8 @@ import { PathologieLombaire, pathologieLombaireSchema } from "./models/pathologi
 import { Symptome, symptomeSchema } from "./models/symptome";
 import { MecanismeDouleur, mecanismeDouleurSchema } from "./models/mecanismeDouleur";
 import { Satisfaction, satisfactionSchema } from "./models/satisfaction";
-import { Observation, observationSchema, ObservationSchema } from "./models/observationEtNotes";
-
+import { Observation, observationSchema } from "./models/observationEtNotes";
+import { Hypothese,hypotheseSchema } from "./models/hypothese";
 
 import * as fs from 'fs';
 const Sections  = fs.readFileSync('file.txt','utf8').split("SECTION")
@@ -21,7 +21,7 @@ let symptome = new Symptome()
 let mecaDouleur = new MecanismeDouleur()
 let satisfaction = new Satisfaction()
 let observationEtNotes = new Observation()
-
+let hypothese = new Hypothese()
 
 type SectionHandler = {
   match: string;
@@ -70,6 +70,11 @@ const SECTION_HANDLERS: SectionHandler[] = [
     target: observationEtNotes,
     schema: observationSchema,
   },
+   {
+    match: "Hypothèse de travail (SCALENEO)",
+    target: hypothese,
+    schema: hypotheseSchema,
+  },
 ];
 
 // Their is probably better than this awful else if list
@@ -80,6 +85,7 @@ Sections.forEach(section => {
   );
 
   if (handler) {
+    //console.log(handler.match)
     BuildObject(section, handler.target, handler.schema);
   }
 });
@@ -91,6 +97,8 @@ Sections.forEach(section => {
     console.log(mecaDouleur)
     console.log(satisfaction)
     console.log(observationEtNotes)
+    console.log(hypothese)
+// ------------------------------------
 
 function BuildObject(section : string, objectToBuild : any , _schema : any){
 
