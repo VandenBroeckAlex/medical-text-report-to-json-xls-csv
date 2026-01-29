@@ -1,7 +1,7 @@
 
 export class Symptome{
     douleurRepos ! : string
-    douleurActivité ! : string
+    douleurActivite ! : string
     douleurMax ! : string
     doulerHoraire ! : string
     variationJournaliaire ! : string
@@ -19,7 +19,7 @@ type SymptomeSchema = {
 
 export const symptomeSchema: SymptomeSchema[] = [
     { property: "douleurRepos", keyText: "NRS Douleur au Repos", parser: (obj, v) => obj.douleurRepos = v },
-    { property: "douleurActivité", keyText: "NRS Douleur à l'Activité", parser: (obj, v) => obj.douleurActivité = v },
+    { property: "douleurActivite", keyText: "NRS Douleur à l'Activité", parser: (obj, v) => obj.douleurActivite = v },
     { property: "douleurMax", keyText: "NRS Douleur Maximum", parser: (obj, v) => obj.douleurMax = v },
     { property: "doulerHoraire", keyText: "Horaire Douleur (Matin/Midi/Soir/Nuit)", parser: (obj, v) => obj.doulerHoraire = v },
     { property: "variationJournaliaire", keyText: "Variation Journalière", parser: (obj, v) => obj.variationJournaliaire = v },
