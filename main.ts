@@ -9,6 +9,7 @@ import { Satisfaction, satisfactionSchema } from "./models/satisfaction";
 import { Observation, observationSchema } from "./models/observationEtNotes";
 import { Hypothese,hypotheseSchema } from "./models/hypothese";
 import { ControleQuality, controleQualitySchema } from "./models/controleQuality";
+import { FonctioMobiNeuro, fonctioMobiNeuroSchema } from "./models/TestsFonctioMobiNeuro";
 import * as fs from 'fs';
 const Sections  = fs.readFileSync('file.txt','utf8').split("SECTION")
 
@@ -23,7 +24,7 @@ let satisfaction = new Satisfaction()
 let observationEtNotes = new Observation()
 let hypothese = new Hypothese()
 let controleQuality = new ControleQuality()
-
+let fonctioMobiNeuro = new FonctioMobiNeuro()
 
 type SectionHandler = {
   match: string;
@@ -82,13 +83,18 @@ const SECTION_HANDLERS: SectionHandler[] = [
     target: controleQuality,
     schema: controleQualitySchema,
   },
+  {
+    match :"TESTS FONCTIONNELS - MOBILITÉ LOMBAIRE - TESTS NEURODYNAMIQUES - SIGNES NEUROLOGIQUES ",
+    target: fonctioMobiNeuro,
+    schema: fonctioMobiNeuroSchema
+  }
 ];
 
 // Their is probably better than this awful else if list
 //It work for now
 Sections.forEach(section => {
   const handler = SECTION_HANDLERS.find(h =>
-    section.includes(h.match)
+    section.toLowerCase().includes(h.match.toLowerCase())
   );
 
   if (handler) {
@@ -102,6 +108,7 @@ Sections.forEach(section => {
     console.log(pathologieLombaire)
     console.log(symptome)
     console.log(mecaDouleur)
+    console.log(fonctioMobiNeuro)
     console.log(satisfaction)
     console.log(observationEtNotes)
     console.log(hypothese)
