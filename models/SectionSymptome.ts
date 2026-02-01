@@ -1,13 +1,17 @@
 
+class NRS {
+    rest ! : number
+    activity ! : number 
+    maximum ! : number
+}
+
 export class Symptome{
-    douleurRepos ! : string
-    douleurActivite ! : string
-    douleurMax ! : string
+    nrs = new NRS()
     doulerHoraire ! : string
     variationJournaliaire ! : string
-    facteurAgravant ! : string
-    facteurSoulageants ! : string
-    progression ! : string
+    aggravating_factors ! : string[]
+    relieving_factors ! : string
+    evolution ! : string
 }
 
 
@@ -18,12 +22,30 @@ type SymptomeSchema = {
 };
 
 export const symptomeSchema: SymptomeSchema[] = [
-    { property: "douleurRepos", keyText: "NRS Douleur au Repos", parser: (obj, v) => obj.douleurRepos = v },
-    { property: "douleurActivite", keyText: "NRS Douleur à l'Activité", parser: (obj, v) => obj.douleurActivite = v },
-    { property: "douleurMax", keyText: "NRS Douleur Maximum", parser: (obj, v) => obj.douleurMax = v },
+    { property: "nrs", keyText: "NRS Douleur au Repos", parser: (obj, v) => obj.nrs.rest = ParseNRS(v,obj) },
+    { property: "nrs", keyText: "NRS Douleur à l'Activité", parser: (obj, v) => obj.nrs.activity = ParseNRS(v,obj) },
+    { property: "nrs", keyText: "NRS Douleur Maximum", parser: (obj, v) => obj.nrs.maximum = ParseNRS(v,obj) },
     { property: "doulerHoraire", keyText: "Horaire Douleur (Matin/Midi/Soir/Nuit)", parser: (obj, v) => obj.doulerHoraire = v },
     { property: "variationJournaliaire", keyText: "Variation Journalière", parser: (obj, v) => obj.variationJournaliaire = v },
-    { property: "facteurAgravant", keyText: "Facteurs Aggravants", parser: (obj, v) => obj.facteurAgravant= v },
-    { property: "facteurSoulageants", keyText: "Facteurs Soulageants", parser: (obj, v) => obj.facteurSoulageants= v },
-    { property: "progression", keyText: "Évolution", parser: (obj, v) => obj.progression= v },
+    { property: "aggravating_factors", keyText: "Facteurs Aggravants", parser: (obj, v) => obj.aggravating_factors= ParseAgravationFactor(v) },
+    { property: "relieving_factors", keyText: "Facteurs Soulageants", parser: (obj, v) => obj.relieving_factors= v },
+    { property: "evolution", keyText: "Évolution", parser: (obj, v) => obj.evolution= v },
 ];
+
+
+function ParseNRS(line : string, symptomeObj : Symptome) : number {
+
+    line = line.replace("/10","")
+    return Number(line)
+}
+
+function ParseAgravationFactor(line : string) : string[]{
+
+    let valueList = line.split(",")
+
+    valueList.forEach((value,index) => {
+        valueList[index] = value.trim()
+    });
+    return valueList
+
+}
