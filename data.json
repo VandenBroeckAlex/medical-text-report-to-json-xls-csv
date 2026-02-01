@@ -1,0 +1,254 @@
+{
+  "header": {
+    "semaine": "0 (BILAN INITIAL)",
+    "patient": "Brad PITT",
+    "date": "25/01/2026"
+  },
+  "infoAdmin": {
+    "patient": "PITT Brad",
+    "bornDate": "1988",
+    "age": 37,
+    "sexe": "F",
+    "profession": "Non-manuel",
+    "secteur": "Ressources Humaines - Manager",
+    "kine": "Tom Cruise",
+    "bilan": "25/01/2026",
+    "IDPatient": "PAT-2026-0912",
+    "IDBilan": "BIL-2026-0912-S0"
+  },
+  "antropoMetric": {
+    "poids": "65",
+    "taille": "168",
+    "bmi": {
+      "value": 23,
+      "classification": "(normal)"
+    }
+  },
+  "pathologieLombaire": {
+    "antecedents": false,
+    "episodeInitial": "Premiers symptômes il y a 4 semaines (janvier 2026)",
+    "traumatisme": "début brutal sans traumatisme identifié",
+    "recidive": {
+      "value": true,
+      "comment": " premier épisode"
+    },
+    "pireEpisode": {
+      "value": "Episode actuel ",
+      "comment": " pire douleur jamais ressentie"
+    },
+    "dureeTotal": "1 mois",
+    "typeLBP": "Aigu (0-6 semaines, en cours)"
+  },
+  "symptome": {
+    "nrs": {
+      "rest": 4,
+      "activity": 7,
+      "maximum": 8
+    },
+    "doulerHoraire": "Pire le matin au réveil (raideur 30min), améliore progressivement en journée avec mobilisation, aggravation fin après-midi après travail bureau",
+    "variationJournaliaire": "Douleur maximale matin (8/10), minimale midi après mobilisation (5/10), réaugmentation fin d'après-midi (7/10), douleur nocturne interruption sommeil 2-3x/semaine",
+    "aggravating_factors": [
+      "Position assise prolongée (>30min)",
+      "tousser",
+      "Valsalva",
+      "levée de charges légères (>2kg)",
+      "flexion avant",
+      "mouvements brusques",
+      "activités domestiques",
+      "marche sur terrains inégaux"
+    ],
+    "relieving_factors": "Repos allongé position fléchie (améliore 2-3 points), antalgiques (ibuprofène 400mg améliore 2-3 points, depuis 1 semaine), massages doux par partenaire, mobilisation active douce, application chaleur",
+    "evolution": "Progression en 3 phases: Semaine 1 = douleur extrême 9/10 incapacité quasi-totale; Semaine 2-3 = plateau douleur 7-8/10 avec légère amélioration; Semaine 4 (actuelle) = stabilisation 6-7/10 avec amélioration douleur du sommeil"
+  },
+  "mecanismeDeDouleur": {
+    "douleurArticulaire": "1",
+    "douleurMyofasciale": "1",
+    "douleurNeurologique": "0",
+    "sensibilisationCentrale": "0",
+    "deficit": "1",
+    "sensations": {
+      "sourde": true,
+      "aigue": false,
+      "brulante": true,
+      "piquante": false,
+      "irradiante": false,
+      "engourdie": false
+    },
+    "observationsMecanismes": "Douleur mécanique aiguë prédominante (90%). Probable entorse ligamentaire ou dysfonctionnement articulaire L5-S1 sans dommage neurologique (pas de radiculalgie, tests neuro normaux). Composante musculaire secondaire (spasme réactionnel). Pas de sensibilisation centrale (CSI faible). Déficit de contrôle sensorimoteur probable secondaire à spasme protecteur et inhibition douleur."
+  },
+  "fonctioMobiNeuro": {
+    "flexion": {
+      "value": "45 cm ",
+      "grade": 4,
+      "nrs": 7
+    },
+    "extension": {
+      "value": "10° ",
+      "grade": 4,
+      "nrs": 7
+    },
+    "inclinaisonLateraleDroit": {
+      "value": "25° ",
+      "grade": 4,
+      "nrs": 5
+    },
+    "inclinaisonLateraleGauche": {
+      "value": "18° ",
+      "grade": 4,
+      "nrs": 8
+    },
+    "rotationDroite": {
+      "value": "25° ",
+      "grade": 4,
+      "nrs": 6
+    },
+    "rotationGauche": {
+      "value": "20° ",
+      "grade": 4,
+      "nrs": 7
+    },
+    "combinaisonMouvements": "Flexion-rotation gauche extrêmement limitée | (NRS 0-10): 9",
+    "mobiliteSegmentaire": {
+      "value": "L5-S1 Grade 3 ",
+      "grade": null,
+      "nrs": 7
+    },
+    "hanche": {
+      "value": "Flexion 85°",
+      "grade": 3,
+      "nrs": null
+    },
+    "slrDroit": 70,
+    "slrGauche": 65,
+    "asymetrie": 5,
+    "slumpTest": "☒ Complet ☐ Limité | ☐ Modif cerv ☐ Modif à distance | ☐ Asymétrie",
+    "pKB": "☒ Complet ☐ Limité | ☐ Modif cerv ☐ Modif à distance | ☐ Asymétrie",
+    "forceMusculaire": "5/5 bilatéralement",
+    "reflexes": "Normaux bilatéralement - Rotulien +2, Achilléen +2",
+    "sensation": "☒ Piquer/Toucher | ☒ Sensibilité fine | ☒ Chaud/Froid | Localisation: Normal bilatéral, dermatomes L5-S1 symétriques",
+    "profilSensoriel": "☒ Normal | ☐ Hypoesthésie | ☐ Allodynie | ☐ Hyperalgésie",
+    "signesMeninges": "☒ Négatifs | ☐ Kernig ☐ Brudzinski",
+    "tensionMusculaire": "☐ Normale | ☐ Légère | ☒ Importante",
+    "triggerPoints": "☐ Absent | ☒ Présent | Localisation: Érecteurs du rachis gauches L5-S1, quadratus lumborum gauche, glute maximus gauche",
+    "hypersensibilitePression": "Zone lombaire: Seuil ~1.5 kg/cm² | Zone contrôle: ~4.5 kg/cm²",
+    "spasmeMusculaire": "☐ Absent | ☒ Présent | ☒ Fatiguabilité | Localisation: Érecteurs, paravertébraux bilatéraux avec prédominance gauche, quadratus lumborum",
+    "sorensen": "60 sec (anormalement bas, patient arrête pour douleur)",
+    "itoShirado": "45 sec (très bas, patient incapable maintenir stabilité abdominale)",
+    "coreStrength": "0,75 (ratio faible, débalance majeure extenseurs suractivés)",
+    "sidePlank": "35 sec / 28 sec (tous deux très réduits, asymétrie en faveur droit)",
+    "csm": "Plank initial 15 sec, Pelvic tilt dysfonctionnel, Bridge 20 sec avec tremblements majeurs"
+  },
+  "questionnaireValide": {
+    "sbt": "4/9",
+    "csiScore": "18/100",
+    "odiScore": "52/100",
+    "pcsScore": "16/52",
+    "depressionScore": "3/21 (normal)",
+    "workScore": "18/100 (faible peur-évitement)",
+    "acivityScore": "14/100 (très faible peur-évitement)",
+    "waiScore": "28/100 (capacité travail temporairement réduite)",
+    "ipaq": "☒ Sédentaire ☐ Modéré ☐ Vigoureux | MET(min/week): 600",
+    "psfs": "",
+    "sfScore": "EQ-5D Score: 55/100",
+    "otherQuestionary": "Aucun"
+  },
+  "redFlagAndPrecaution": {
+    "redFlagDetected": "Non",
+    "contreIndications": "Aucune absolue (manipulation à différer, mobilisations douces appropriées)",
+    "allergies": "Pénicilline (antécédent urticaire légère)",
+    "medicationsPertinentes": "Ibuprofène 400mg 3x/jour depuis 1 semaine; Contraceptif oral (Yaz) depuis 5 ans",
+    "examenMedicaux": "Pas d'imagerie réalisée. Examen médecin généraliste : \"Entorse lombaire probable L5-S1, mécanique, début aigu\"",
+    "instabiliteRachidienne": "☐ Suspectée ☐ Présente ☒ À vérifier | Signes: Pas de signes d'instabilité vraie; limitation sévère amplitude probablement due spasme protecteur et douleur aiguë",
+    "limitationTraitementManuel": "☐ Manipulation contre-indiquée | ☒ Mobilisation légère seulement | ☐ Pas de limite",
+    "anticoagulation": "☒ Non | Traitement: N/A",
+    "grossesse": "☒ N/A ☐ Oui | Adaptations: N/A",
+    "generalState": "☒ Stable ☐ Consultation médicale recommandée"
+  },
+  "mecanismeDouleur": {
+    "motifArticulaire": false,
+    "motifMyofascial": false,
+    "motifNeural": false,
+    "sensibilisationCentrale": false,
+    "controleSensorimoteur": false
+  },
+  "gestionRecomandation": {
+    "therapyFrequences": "3 séances/semaine pendant 2 semaines, puis 2 séances/semaine pendant 2 semaines, puis 1 séance/semaine pendant 2-4 semaines",
+    "manualTherapy": "1",
+    "therapyByExercise": "1",
+    "neurodynamic": "0",
+    "patientEducation": "1",
+    "modality": "Repos partiel 1 semaine, télétravail/congé court possible, chaleur local avant exercices, AINS régulier 1-2 semaines, support lombaire bureau, éviter jogging complètement pendant 4-6 semaines, pas de ceinture."
+  },
+  "perspectiveAndBelives": {
+    "diagnosisComprehension": "☒ Oui ☐ Partiellement ☐ Non | Inquiétudes: Comprend \"entorse du bas du dos\". Inquiétudes modérées concernant reprise jogging et risque hernie. Rassurée par examen normal médecin.",
+    "gravityPerception": "☐ Bénigne ☒ Modérée ☐ Grave ☐ Catastrophe",
+    "autoEffectivnessToPain": "☐ Faible ☒ Modérée ☐ Bonne | Croyance contrôle: Patient croit modérément qu'elle peut améliorer douleur via traitement; motivée par objectif retour jogging; attitude positive."
+  },
+  "pronostic": {
+    "treatmentDuration": "Courte (2-4 semaines) pour amélioration majeure; Modérée (4-8 semaines) pour remission",
+    "numberOfHoppedSession": "12-16 séances",
+    "positivePrognosticFactors": "Premier épisode, âge jeune (37 ans), bonne condition physique préalable (jogging régulier), bonne compréhension, peu d'anxiété/catastrophisme, pas de sensibilisation centrale, motivation élevée, pas de red flags, tests neuro normaux, pas de dépression, soutien partner.",
+    "negativePrognosticFactors": "Douleur aigüe très intense (8/10), limitation majeure mobilité et fonction, spasme musculaire important, incapacité travail temporaire possible, phase aigüe exige management prudent.",
+    "shortTermsObjectives": "NRS repos 4→2/10, NRS activité 7→4/10, mobilité lombaire amélioration, sommeil amélioration, marche 20-30min, reprise travail partiel/complet, compréhension mécanisme douleur.",
+    "longTermObjectives": "Remission douleur 0-1/10, mobilité normalisée, retour jogging 30-45min 4-5x/sem, capacité travail 100%, endurance core normalisée, prévention récidive via programme entretien.",
+    "realisticExpectation": "☒ Oui ☐ Partiellement ☐ Non | Détail: Patient anticipe amélioration 2-3 semaines et remission 6-8 semaines; accepte progressivité; optimiste.",
+    "healingExpectedByPatient": "☒ Complète ☐ Partielle ☐ Chronique",
+    "yellowFlag": "Détails: Aucun yellow flag majeur détecté",
+    "socialSupport": "☒ Bon ☐ Modéré ☐ Faible | Détail: Vit en couple depuis 7 ans, partenaire très supportif; famille proche; amis jogging group.",
+    "identifiedStress": "☒ Travail ☒ Autre (incertitude récupération/impact capacité travail) | Détail: Stress travail modéré (manager RH, responsabilités, deadline); stress principal = incertitude retour à normalité.",
+    "reevaluationPoint": "☒ Non ☐ Oui | Autres: Pas indication à ce stade",
+    "specialOrientationNeed": "Semaine: 2 | Critères changement: NRS repos 4→2-3/10, NRS activité 7→5-6/10, sommeil amélioré, tolérance mobilisation établie. Si plateau/exacerbation, ajustement thérapie.",
+    "anticipatedBarriersToTreatment": "Peur aggravation douleur lors mobilisation, impatience reprise activité, stress travail. Management psychologique important."
+  },
+  "activityAndParticipation": {
+    "dailyActivity": "☐ Marche | ☒ Assise | ☒ Levage | ☒ Escaliers | ☒ Toilette | ☒ Sexualité | ☒ Sommeil",
+    "hobbysAndSports": "Activités antérieures: Jogging 30-45min 4-5x/sem, yoga 1x/sem, natation été, randonnée weekend | Actuellement: Toutes arrêtées (incapacité majeure)",
+    "timeSitAndStand": "Assis: 20-30 min | Debout: 15-20 min | Marche: 5-10 min",
+    "sedentary": "Temps assis quotidien: 4-5h | Écran: 2-3h",
+    "professionalStatus": "☒ Actif | ☐ Congé maladie | ☐ Incapacité | ☐ Arrêt | ☐ Sans activité/retraité",
+    "daysOfAbsenceFromWork": "Derniers 3 mois: 3 jours depuis début douleur | 6 mois: 3 jours",
+    "professionalLimitation": "Tâches impossibles: Réunions debout >15min, déplacements multiples, port documents lourds, conduite longue | Tâches difficiles: Réunions assis >1h, travail informatique continu, marche corridor fréquente",
+    "expectationsReturnToWork": "Délai anticipé: 2-3 semaines pour retour progressif; 6-8 sem pour retour complet | Confiance: ☒ Élevée ☐ Modérée ☐ Faible",
+    "positionModificationsPossible": "☒ Oui ☐ Non | Type: Télétravail temporaire, bureau ergonomique, réduction réunions debout, horaires flexibles."
+  },
+  "contributingFactor": {
+    "posturalDefectsIdentified": "☐ Hyperlordose ☐ Dos plat | ☒ Scoliose | ☐ Tête antépulsé | ☐ Bassin antéversé",
+    "biomechanicalfactors": "☒ Charge de travail ☒ Posture ☐ Mouvement répété ☐ Vibrations | Autre: Jogging intensif probable facteur mineur charge lombaire",
+    "lifestyleFactors": "☐ Tabac ☐ Alcool ☐ Obésité ☐ Inactivité ☐ Sommeil ☐ Nutrition",
+    "hormonalMetabolicFactors": "☐ Ménopause ☐ Diabète ☐ Thyroïde ☐ Inflammation | Autre: Aucun facteur connu",
+    "ergonomicWorkEnvironment": "Poste optimisé: ☐ Oui ☒ Non | Recommandations: Écran hauteur suboptimale (trop bas), chaise ergonomique basique, pas repose-pieds, pauses non systématisées.",
+    "majorPsychosocialFactors": "☐ Peur-évitement ☐ Catastrophisme ☐ Dépression ☐ Anxiété ☒ Stress",
+    "healthSystemCulture": "☒ Bien comprise ☐ À développer",
+    "culturalTreatmentExpectations": "☒ Oui ☐ Non | Approche préférée: Attente amélioration 2-3 semaines, retour activité 6-8 semaines. Préfère approche manuelle + exercice.",
+    "earlyCompliance": ""
+  },
+  "satisfaction": {
+    "satisfaction": "À remplir | Relation thérapeute: À remplir",
+    "gas": "Progression objectives: À remplir"
+  },
+  "observationEtNotes": {
+    "resumeClinique": "Patiente 37 ans, première lombalgie aigüe depuis 4 semaines, probable entorse L5-S1 avec spasme protecteur majeur. Douleur 8/10 initial améliorée légèrement à 6-7/10 après 1 semaine AINS. Limitation majeure mobilité lombaire tous azimuts (Grade 4), probablement due douleur aiguë et spasme. Tests neurodynamiques normaux, pas radiculalgie. Endurance core réduite. Pas de sensibilisation centrale, peu d'anxiété/catastrophisme. Excellents facteurs pronostiques : jeune, première episode, bonne condition physique, motivation élevée.",
+    "observations": "Patient très motivée et coopérative, attitude positive. Bonne communication et compréhension. Spasme musculaire très important mais probablement transitoire. Pas d'éléments neurologique alarmants. Très bonne candidate pour traitement kiné rapide. Besoin reassurance progressivité et timing retour activité.",
+    "impression": "Cas d'entorse lombaire aigüe avec excellent pronostic. Patiente jeune, active, bien motivée, bons facteurs psychosociaux. Gestion conservative par kiné phase-progressif indiquée et probablement très efficace. Attente 2-4 semaines pour amélioration majeure, 6-8 semaines remission réaliste.",
+    "notes": "Patient utilise AINS régulier (efficacité modérée). Jogging group important soutien social - communication impact temporaire souhaitable."
+  },
+  "hypothese": {
+    "pathology": "Probable entorse ligamentaire et/ou dysfonctionnement facettaire L5-S1 sans dommage neurologique.",
+    "sourceOfSymptome": "Primaire : articulation L5-S1; Secondaire : spasme protecteur paravertébraux, quadratus lumborum.",
+    "painType": "Nociceptive articulaire (80%) + myofasciale réactionnelle (20%), phase aigüe. Pas neurologique/centrale.",
+    "impairments": "Mobilité majeure limitation Grade 4; Force/Endurance inhibition douleur dominante; Contrôle déficit majeur; Fonction incapacité majeure.",
+    "painMechanisme": "Nociceptif articulaire prédominant via stimulation structure inflammatoire L5-S1.",
+    "precaution": "Manipulation CONTRE-INDIQUÉE phase aigüe; mobilisations très progressives; éviter exacerbation douleur.",
+    "patientPerspective": "Excellent : peu d'anxiété, bonne compréhension, motivation élevée, attentes réalistes.",
+    "activityParticipation": "Limitations majeures actuelles; excellent potentiel restauration complet.",
+    "contributingFactor": "Scoliose légère probable mineur; ergonomie travail suboptimale; stress travail modéré.",
+    "managementPrognosis": "Approche conservative 6-8 semaines, pronostic EXCELLENT."
+  },
+  "controleQuality": {
+    "confianceExtraction": "95%",
+    "data": "Oui",
+    "manualRevision": "Non",
+    "moddifiedBy": "Laurent Mercier (Kiné examinateur)",
+    "ModifDate": "25/01/2026"
+  }
+}

@@ -18,11 +18,25 @@ import { PerspectivesAndBelieves, perspectivesAndBelievesSchema } from "./models
 import { Pronostic, pronosticSchema } from "./models/SectionPronostic";
 import { ActivityAndParticipation, activityAndParticipationSchema } from "./models/SectionActivityAndParticipation";
 import { ContributingFactor, contributingFactorSchema } from "./models/SectionContributingFactors";
+import {EvaluationComplete} from "./models/EvaluationComplete"
 
 import * as fs from 'fs';
-const Sections  = fs.readFileSync('file.txt','utf8').split("SECTION")
+import * as path from "path";
+
+
+let txt = fs.readFileSync('file.txt','utf8')
+
+let evaluation = ParseTxtToEvaluationObj(txt)
+
+ExportEvaluationToJson(evaluation)
+
+// ------------------------------------
+
+function ParseTxtToEvaluationObj(text : string) : EvaluationComplete{
 
 const startTime = performance.now();
+const Sections  = text.split("SECTION")
+
 let header = new Header() 
 let infoAdmin = new InfoAdmin()
 let antropoMetric =  new AntropoMetric()
@@ -42,6 +56,7 @@ let perspectiveAndBelives = new PerspectivesAndBelieves()
 let pronostic = new Pronostic()
 let activityAndParticipation = new ActivityAndParticipation()
 let contributingFactor = new ContributingFactor()
+const evaluation = new EvaluationComplete()
 
 type SectionHandler = {
   match: string;
@@ -147,7 +162,6 @@ const SECTION_HANDLERS: SectionHandler[] = [
   }
 ];
 
-
 Sections.forEach(section => {
   const handler = SECTION_HANDLERS.find(h =>
     section.toLowerCase().includes(h.match.toLowerCase())
@@ -162,8 +176,8 @@ Sections.forEach(section => {
     // console.log(antropoMetric)
     // console.log(pathologieLombaire)
     // console.log(symptome)
-    console.log(mecanismeDeDouleur)
-    // console.log(fonctioMobiNeuro)
+    // console.log(mecanismeDeDouleur)
+    console.log(fonctioMobiNeuro)
     // console.log(satisfaction)
     // console.log(observationEtNotes)
     // console.log(hypothese)
@@ -177,17 +191,56 @@ Sections.forEach(section => {
     // console.log(activityAndParticipation)
     // console.log(contributingFactor)
 
+    Object.assign(evaluation, {
+    header,
+    infoAdmin,
+    antropoMetric,
+    pathologieLombaire,
+    symptome,
+    mecanismeDeDouleur,
+    satisfaction,
+    observationEtNotes,
+    hypothese,
+    controleQuality,
+    fonctioMobiNeuro,
+    questionnaireValide,
+    mecanismeDouleur,
+    redFlagAndPrecaution,
+    gestionRecomandation,
+    perspectiveAndBelives,
+    pronostic,
+    activityAndParticipation,
+    contributingFactor
+  });
+
     const endTime = performance.now();
     const elapsedTime = endTime - startTime;
     console.log(`Time for parsing file : ${elapsedTime} ms`);
+    return evaluation
+}
+
+function ExportEvaluationToJson(evaluation : EvaluationComplete){
+
+      const jsonData = JSON.stringify(evaluation, null, 2)
+      const filePath = path.join(__dirname, "data.json");
+
+  fs.writeFileSync(
+    filePath,
+    jsonData,
+    "utf-8"
+  );
+}
+
+
 // ------------------------------------
 
 function BuildObject(section : string, objectToBuild : any , _schema : any){
 
     const lines = SeparateLines(section)
     const schema = _schema
-    if(objectToBuild == mecanismeDouleur){
+    if(objectToBuild == MecanismeDouleur){
         // console.log(lines)
+        //Key right of separator
          for (const line of lines) {
             for (const entry of schema) {
                 let cleanedline = line
@@ -199,12 +252,12 @@ function BuildObject(section : string, objectToBuild : any , _schema : any){
             }
         }
     }
+     //Key lef of separator
     else{
        for (const line of lines) {
             for (const entry of schema) {
                 let cleanedline = line
                 if (cleanedline.toLowerCase().replace("☒","").replace("☐","").trim().startsWith(entry.keyText.toLowerCase())) {
-
                     const value = KeyLeftCleanLine(line, entry.keyText);
                     entry.parser(objectToBuild, value);
                 }
@@ -212,10 +265,6 @@ function BuildObject(section : string, objectToBuild : any , _schema : any){
         }}
     return objectToBuild;
 }
-
-
-
-
 
 function SeparateLines(section : string) : string[]{
     return section.split("\n");
@@ -245,7 +294,6 @@ function KeyLeftCleanLine(line: string, key: string): string {
     return value;
 }
 
-//TODO
 function KeyRightCleanLine(line: string, key: string): string {
 
      const lineLower = line.toLowerCase();

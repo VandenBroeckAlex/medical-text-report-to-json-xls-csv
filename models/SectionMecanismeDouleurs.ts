@@ -15,11 +15,11 @@ export type MecanismeDouleurSchema = {
 };
 
 export const mecanismeDouleurSchema: MecanismeDouleurSchema[] = [
-    { property: "motifArticulaire", keyText: "Motif articulaire", parser: (obj, v) => obj.motifArticulaire = GetCheckboxValue(v) },
-    { property: "motifMyofascial", keyText: "Motif myofascial ", parser: (obj, v) => obj.motifMyofascial = GetCheckboxValue(v) },
-    { property: "motifNeural", keyText: "Motif neural", parser: (obj, v) => obj.motifNeural = GetCheckboxValue(v) },
-    { property: "sensibilisationCentrale", keyText: "Sensibilisation centrale", parser: (obj, v) => obj.sensibilisationCentrale = GetCheckboxValue(v) },
-    { property: "controleSensorimoteur", keyText: "Contrôle sensorimoteur", parser: (obj, v) => obj.controleSensorimoteur = GetCheckboxValue(v) },
+    { property: "motifArticulaire", keyText: "Motif articulaire", parser: (obj, line) => obj.motifArticulaire = GetCheckboxValue(line) },
+    { property: "motifMyofascial", keyText: "Motif myofascial ", parser: (obj, line) => obj.motifMyofascial = GetCheckboxValue(line) },
+    { property: "motifNeural", keyText: "Motif neural", parser: (obj, line) => obj.motifNeural = GetCheckboxValue(line) },
+    { property: "sensibilisationCentrale", keyText: "Sensibilisation centrale", parser: (obj, line) => obj.sensibilisationCentrale = GetCheckboxValue(line) },
+    { property: "controleSensorimoteur", keyText: "Contrôle sensorimoteur", parser: (obj, line) => obj.controleSensorimoteur = GetCheckboxValue(line) },
 ];
 
 
