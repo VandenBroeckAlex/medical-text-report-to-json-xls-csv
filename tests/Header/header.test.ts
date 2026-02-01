@@ -18,7 +18,7 @@ Date: 22/02/2026`
 
 
 describe('header',()=>{
-    test('case : heder 1', () =>{
+    test('case : header 1', () =>{
         const header = new Header() 
         header.semaine = "0 (BILAN INITIAL)"
         header.patient = "Brad PITT"
@@ -27,7 +27,7 @@ describe('header',()=>{
         let output = ParseTxtToEvaluationObj(header1)
         expect(header).toEqual(output.header)
     })
-    test('case : heder 2', () =>{
+    test('case : header 2', () =>{
         const header = new Header() 
         header.semaine = "8 (RÉÉVALUATION FINALE - FIN DE TRAITEMENT)"
         header.patient = "Brad PITT"
@@ -36,7 +36,7 @@ describe('header',()=>{
         let output = ParseTxtToEvaluationObj(header2)
         expect(header).toEqual(output.header)
     })
-    test('case : heder 3', () =>{
+    test('case : header 3', () =>{
         const header = new Header() 
         header.semaine = "4 (RÉÉVALUATION INTERMÉDIAIRE)"
         header.patient = "Brad PITT"
