@@ -69,6 +69,5 @@ function ParseProfessionAndSecteur(line: string): { profession: Profession, sect
 
 function ParseAge(line : string) : number{
     line = line.replace("ans","")
-    console.log(line)
     return Number(line)
 }
