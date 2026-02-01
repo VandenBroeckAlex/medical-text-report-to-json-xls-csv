@@ -13,11 +13,11 @@ export class FonctioMobiNeuro{
     slrDroit ! : number
     slrGauche ! : number
     asymetrie ! : number
-    slumpTest ! : string
-    pKB ! : string
+    slumpTest ! : SlumpTest
+    pKB ! : SlumpTest
     forceMusculaire ! : string
     reflexes ! : string
-    sensation! : string
+    sensation! : Sensation
     profilSensoriel! : string
     signesMeninges! : string
     tensionMusculaire! : string
@@ -50,11 +50,11 @@ export const fonctioMobiNeuroSchema: FonctioMobiNeuroSchema[] = [
     { property: "slrDroit", keyText: "SLR Droit (degrés)", parser: (obj, line) => obj.slrDroit = parseSLR(line) },
     { property: "slrGauche", keyText: "SLR Gauche (degrés)", parser: (obj, line) => obj.slrGauche = parseSLR(line) },
     { property: "asymetrie", keyText: "Asymétrie SLR", parser: (obj, line) => obj.asymetrie = parseSLR(line) },
-    { property: "slumpTest", keyText: "Slump test (degrés)", parser: (obj, line) => obj.slumpTest = line },
-    { property: "pKB", keyText: "PKB (degrés)", parser: (obj, line) => obj.pKB = line },
+    { property: "slumpTest", keyText: "Slump test (degrés)", parser: (obj, line) => obj.slumpTest = ParseSlumpTest(line) },
+    { property: "pKB", keyText: "PKB (degrés)", parser: (obj, line) => obj.pKB = ParseSlumpTest(line) },
     { property: "forceMusculaire", keyText: "Force musculaire (MRC scale 0-5)", parser: (obj, line) => obj.forceMusculaire = line },
     { property: "reflexes", keyText: "Réflexes (Oui/Non)", parser: (obj, line) => obj.reflexes = line },
-    { property: "sensation", keyText: "Sensation", parser: (obj, line) => obj.sensation = line },
+    { property: "sensation", keyText: "Sensation", parser: (obj, line) => obj.sensation = parseSensation(line) },
     { property: "profilSensoriel", keyText: "Profil sensoriel", parser: (obj, line) => obj.profilSensoriel = line },
     { property: "signesMeninges", keyText: "Signes méningés", parser: (obj, line) => obj.signesMeninges = line },
     { property: "tensionMusculaire", keyText: "Tension musculaire", parser: (obj, line) => obj.tensionMusculaire = line },
@@ -89,13 +89,67 @@ function parseSLR(line : string) : number{
 
 function ParseSlumpTest(line : string) : SlumpTest{
     let slumpTestObj = new SlumpTest()
+    line = line.replace("|","").replace("Modif","").replace("à","")
+    let valList = line.split(" ")
 
-    let checkValue = false
+    let checkBoxValue = false
+    valList.forEach(element => {
 
-    let valList = line.replace("|","").replace("Modif","").replace("à","")
+
+        if(element.includes("☒")){
+            checkBoxValue = true
+        }
+        else if(element.includes("☐")){
+            checkBoxValue = false
+        }
+
+
+        if(element.includes("Complet")){
+            slumpTestObj.complet = checkBoxValue
+        }   
+        else if(element.includes("Limité")){
+            slumpTestObj.limit = checkBoxValue
+        }
+        else if(element.includes("cerv")){
+            slumpTestObj.modifCerv = checkBoxValue
+        }
+        else if(element.includes("distance")){
+            slumpTestObj.modifDist = checkBoxValue
+        }
+        else if(element.includes("Asymétrie")){
+            slumpTestObj.asymetry = checkBoxValue
+        }
+    });
+
     return slumpTestObj
 }
 
+function parseSensation(line :string) : Sensation{
+    let sensationObj = new Sensation()
+
+    let valList = line.split("|")
+
+    if(valList[0].includes("☒")){
+        sensationObj.piquerToucher = true
+    }else{
+        sensationObj.piquerToucher = false
+    }
+
+    if(valList[1].includes("☒")){
+        sensationObj.sensibiliteFine = true
+    }else{
+        sensationObj.sensibiliteFine = false
+    }
+
+    if(valList[2].includes("☒")){
+        sensationObj.chaudFroid = true
+    }else{
+        sensationObj.chaudFroid = false
+    }
+
+    sensationObj.localisation = valList[3]
+    return sensationObj
+}
 
 
 class ValueNRS{
@@ -105,7 +159,7 @@ class ValueNRS{
 }
 
 class SlumpTest{
-    Complet !: boolean 
+    complet !: boolean 
     limit !: boolean
     modifCerv !: boolean
     modifDist !: boolean
@@ -127,10 +181,8 @@ class Sensation {
     sensibiliteFine!: boolean
     chaudFroid!: boolean
 
-    localisationNormale!: boolean
-    bilateral!: boolean
-    dermatomesSymetriques!: boolean
-    dermatomes!: string // ex: "L5-S1"
+    localisation!: string
+    
 }
 class ProfilSensoriel {
     normal!: boolean

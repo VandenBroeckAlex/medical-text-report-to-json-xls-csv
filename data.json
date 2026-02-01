@@ -121,11 +121,28 @@
     "slrDroit": 70,
     "slrGauche": 65,
     "asymetrie": 5,
-    "slumpTest": "☒ Complet ☐ Limité | ☐ Modif cerv ☐ Modif à distance | ☐ Asymétrie",
-    "pKB": "☒ Complet ☐ Limité | ☐ Modif cerv ☐ Modif à distance | ☐ Asymétrie",
+    "slumpTest": {
+      "complet": true,
+      "limit": false,
+      "modifCerv": false,
+      "modifDist": false,
+      "asymetry": false
+    },
+    "pKB": {
+      "complet": true,
+      "limit": false,
+      "modifCerv": false,
+      "modifDist": false,
+      "asymetry": false
+    },
     "forceMusculaire": "5/5 bilatéralement",
     "reflexes": "Normaux bilatéralement - Rotulien +2, Achilléen +2",
-    "sensation": "☒ Piquer/Toucher | ☒ Sensibilité fine | ☒ Chaud/Froid | Localisation: Normal bilatéral, dermatomes L5-S1 symétriques",
+    "sensation": {
+      "piquerToucher": true,
+      "sensibiliteFine": true,
+      "chaudFroid": true,
+      "localisation": " Localisation: Normal bilatéral, dermatomes L5-S1 symétriques"
+    },
     "profilSensoriel": "☒ Normal | ☐ Hypoesthésie | ☐ Allodynie | ☐ Hyperalgésie",
     "signesMeninges": "☒ Négatifs | ☐ Kernig ☐ Brudzinski",
     "tensionMusculaire": "☐ Normale | ☐ Légère | ☒ Importante",
