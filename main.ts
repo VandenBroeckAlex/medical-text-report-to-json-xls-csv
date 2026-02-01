@@ -32,7 +32,7 @@ ExportEvaluationToJson(evaluation)
 
 // ------------------------------------
 
-function ParseTxtToEvaluationObj(text : string) : EvaluationComplete{
+export function ParseTxtToEvaluationObj(text : string) : EvaluationComplete{
 
 const startTime = performance.now();
 const Sections  = text.split("SECTION")
@@ -177,7 +177,7 @@ Sections.forEach(section => {
     // console.log(pathologieLombaire)
     // console.log(symptome)
     // console.log(mecanismeDeDouleur)
-    console.log(fonctioMobiNeuro)
+    // console.log(fonctioMobiNeuro)
     // console.log(satisfaction)
     // console.log(observationEtNotes)
     // console.log(hypothese)

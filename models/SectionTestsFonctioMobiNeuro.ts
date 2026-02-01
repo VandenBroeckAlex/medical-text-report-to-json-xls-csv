@@ -73,7 +73,7 @@ function ParseValueNRS(line : string) : ValueNRS{
 
     let nrsObj = new ValueNRS() 
     let valueList = line.split("|").join(",").split("/").join(",").split(",")
-    console.log(valueList)
+    // console.log(valueList)
     nrsObj.value = valueList[0]
     nrsObj.grade = Number(valueList[1].replace("Grade",""))
     nrsObj.nrs = Number(valueList[2].replace("(NRS 0-10):",""))

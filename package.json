@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/VandenBroeckAlex/Nico-parser/issues"
   },
-  "homepage": "https://github.com/VandenBroeckAlex/Nico-parser#readme"
+  "homepage": "https://github.com/VandenBroeckAlex/Nico-parser#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6"
+  }
 }
