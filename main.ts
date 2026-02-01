@@ -12,6 +12,12 @@ import { ControleQuality, controleQualitySchema } from "./models/SectionControle
 import { FonctioMobiNeuro, fonctioMobiNeuroSchema } from "./models/SectionTestsFonctioMobiNeuro";
 import { QuestionnaireValide, questionnaireValideSchema } from "./models/SectionQuestionnaireValide";
 import { MecanismeDouleur, mecanismeDouleurSchema } from "./models/MecanismeDouleurs";
+import { RedFlagAndPrecaution, redFlagAndPrecautionSchema } from "./models/RedFlagAndPrecaution";
+import { GestionAndRecommandations, gestionAndRecommandationsSchema } from "./models/GestionAndRecommandation";
+import { PerspectivesAndBelieves, perspectivesAndBelievesSchema } from "./models/PerspectivesAndBelieves";
+import { Pronostic, pronosticSchema } from "./models/Pronostic";
+import { ActivityAndParticipation, activityAndParticipationSchema } from "./models/ActivityAndParticipation";
+import { ContributingFactor, contributingFactorSchema } from "./models/ContributingFactors";
 
 import * as fs from 'fs';
 const Sections  = fs.readFileSync('file.txt','utf8').split("SECTION")
@@ -30,7 +36,12 @@ let controleQuality = new ControleQuality()
 let fonctioMobiNeuro = new FonctioMobiNeuro()
 let questionnaireValide = new QuestionnaireValide()
 let mecanismeDouleur = new MecanismeDouleur()
-
+let redFlagAndPrecaution = new RedFlagAndPrecaution()
+let gestionRecomandation = new GestionAndRecommandations()
+let perspectiveAndBelives = new PerspectivesAndBelieves()
+let pronostic = new Pronostic()
+let activityAndParticipation = new ActivityAndParticipation()
+let contributingFactor = new ContributingFactor()
 
 type SectionHandler = {
   match: string;
@@ -92,7 +103,7 @@ const SECTION_HANDLERS: SectionHandler[] = [
   {
     match :"TESTS FONCTIONNELS - MOBILITÉ LOMBAIRE - TESTS NEURODYNAMIQUES - SIGNES NEUROLOGIQUES ",
     target: fonctioMobiNeuro,
-    schema: fonctioMobiNeuroSchema
+    schema: fonctioMobiNeuroSchema,
   },
   {
     match : "QUESTIONNAIRES VALIDÉS - SCORES [À remplir si indiqué]",
@@ -102,7 +113,37 @@ const SECTION_HANDLERS: SectionHandler[] = [
   {
     match :"Mécanismes douleur",
     target: mecanismeDouleur,
-    schema: mecanismeDouleurSchema
+    schema: mecanismeDouleurSchema,
+  },
+  {
+    match : "DRAPEAUX ROUGES & PRÉCAUTIONS",
+    target :redFlagAndPrecaution,
+    schema : redFlagAndPrecautionSchema,
+  },
+   {
+    match : "PLAN DE GESTION & RECOMMANDATIONS",
+    target : gestionRecomandation,
+    schema : gestionAndRecommandationsSchema,
+  },
+  {
+    match : "Perspectives et croyances du patient",
+    target : perspectiveAndBelives,
+    schema : perspectivesAndBelievesSchema,
+  },
+  {
+    match : "PRONOSTIC",
+    target : pronostic,
+    schema : pronosticSchema,
+  },
+  {
+    match : "Activités et participation",
+    target: activityAndParticipation,
+    schema : activityAndParticipationSchema,
+  },
+  {
+    match : "",
+    target: contributingFactor,
+    schema : contributingFactorSchema,
   }
 ];
 
@@ -113,23 +154,29 @@ Sections.forEach(section => {
   );
 
   if (handler) {
-    console.log(handler.match)
     BuildObject(section, handler.target, handler.schema);
   }
 });
-    console.log(header)
-    console.log(infoAdmin)
-    console.log(antropoMetric)
+    // console.log(header)
+    // console.log(infoAdmin)
+    // console.log(antropoMetric)
     console.log(pathologieLombaire)
-    console.log(symptome)
-    console.log(mecanismeDeDouleur)
-    console.log(fonctioMobiNeuro)
-    console.log(satisfaction)
-    console.log(observationEtNotes)
-    console.log(hypothese)
-    console.log(controleQuality)
-    console.log(questionnaireValide)
-    console.log(mecanismeDouleur)
+    // console.log(symptome)
+    // console.log(mecanismeDeDouleur)
+    // console.log(fonctioMobiNeuro)
+    // console.log(satisfaction)
+    // console.log(observationEtNotes)
+    // console.log(hypothese)
+    // console.log(controleQuality)
+    // console.log(questionnaireValide)
+    // console.log(mecanismeDouleur)
+    // console.log(redFlagAndPrecaution)
+    // console.log(gestionRecomandation)
+    // console.log(perspectiveAndBelives)
+    // console.log(pronostic)
+    // console.log(activityAndParticipation)
+    // console.log(contributingFactor)
+
     const endTime = performance.now();
     const elapsedTime = endTime - startTime;
     console.log(`Time for parsing file : ${elapsedTime} ms`);
@@ -140,7 +187,7 @@ function BuildObject(section : string, objectToBuild : any , _schema : any){
     const lines = SeparateLines(section)
     const schema = _schema
     if(objectToBuild == mecanismeDouleur){
-        console.log(lines)
+        // console.log(lines)
          for (const line of lines) {
             for (const entry of schema) {
                 let cleanedline = line

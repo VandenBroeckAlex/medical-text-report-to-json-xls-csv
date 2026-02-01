@@ -22,7 +22,7 @@ export const mecanismeDouleurSchema: MecanismeDouleurSchema[] = [
 
 
 function GetCheckboxValue( line : string) : boolean{
-    console.log(line)
+    // console.log(line)
     if(line.includes("☒")){
         return true
     }

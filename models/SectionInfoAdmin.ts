@@ -6,7 +6,7 @@ export class InfoAdmin{
     
     patient! : string
     bornDate! : string
-    age! : string
+    age! : number
     sexe! : string
     profession! : Profession
     secteur! : string
@@ -33,9 +33,9 @@ export const infoAdminSchema: InfoAdminSchema[] = [
     
     { property: "patient", keyText: "Nom et prénom du Patient", parser: (obj, v) => obj.patient = capitalizeFirstLetter(v) },
     { property: "bornDate", keyText: "Année de Naissance", parser: (obj, v) => obj.bornDate = v },
-    { property: "age", keyText: "Age", parser: (obj, v) => obj.age = v },
+    { property: "age", keyText: "Age", parser: (obj, v) => obj.age = ParseAge(v) },
     { property:"sexe", keyText: "Sexe", parser:(obj,v) => obj.sexe = v},
-    { property: "profession", keyText: "Profession", parser: (obj, v) => {const { profession, secteur } = parseProfessionAndSecteur(v); obj.profession = profession;obj.secteur = secteur;}},
+    { property: "profession", keyText: "Profession", parser: (obj, v) => {const { profession, secteur } = ParseProfessionAndSecteur(v); obj.profession = profession;obj.secteur = secteur;}},
     {property: "kine", keyText:"Kiné Examinateur", parser:(obj,v) => obj.kine = v},
     {property: "bilan", keyText:"Date Bilan", parser:(obj,v) => obj.bilan = v},
     {property: "IDPatient", keyText:"ID Patient", parser:(obj,v) => obj.IDPatient = v},
@@ -45,7 +45,7 @@ export const infoAdminSchema: InfoAdminSchema[] = [
 
 
 
-function parseProfessionAndSecteur(line: string): { profession: Profession, secteur: string } {
+function ParseProfessionAndSecteur(line: string): { profession: Profession, secteur: string } {
     const parts = line.split(" | ");
     let secteur = "";
     let profession: Profession | undefined;
@@ -67,3 +67,8 @@ function parseProfessionAndSecteur(line: string): { profession: Profession, sect
     return { profession, secteur };
 }
 
+function ParseAge(line : string) : number{
+    line = line.replace("ans","")
+    console.log(line)
+    return Number(line)
+}

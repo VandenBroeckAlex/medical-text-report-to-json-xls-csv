@@ -23,3 +23,4 @@ export const headerSchema: HeaderSchema[] = [
     { property: "patient", keyText: "Patient", parser: (obj, v) => obj.patient = capitalizeFirstLetter(v) },
     { property: "date", keyText: "Date", parser: (obj, v) => obj.date = v },
 ];
+
