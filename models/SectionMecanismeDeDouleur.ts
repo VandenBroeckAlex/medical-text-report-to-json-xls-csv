@@ -1,16 +1,13 @@
 
 
-const SENSATIONS = [
-  "Sourde",
-  "Aiguë",
-  "Brûlante",
-  "Piquante",
-  "Irradiante",
-  "Engourdie",
-] as const;
-
-type Sensation = typeof SENSATIONS[number];
-
+class Sensation{
+    sourde !: boolean
+    aigue!: boolean
+    brulante!: boolean
+    piquante!: boolean
+    irradiante!:boolean
+    engourdie !:boolean
+}
 
 export class MecanismeDeDouleur{
     douleurArticulaire! : string
@@ -18,7 +15,7 @@ export class MecanismeDeDouleur{
     douleurNeurologique ! : string
     sensibilisationCentrale ! : string
     deficit  ! : string
-    caractereSensations ! : Sensation
+    sensations !: Sensation | string
     observationsMecanismes ! : string
 }
 
@@ -37,30 +34,54 @@ export const mecanismeDeDouleurSchema: MecanismeDeDouleurSchema[] = [
     { property: "douleurNeurologique", keyText: "Douleur Neurologique", parser: (obj, v) => obj.douleurNeurologique = v },
     { property: "sensibilisationCentrale", keyText: "Sensibilisation Centrale (nociceptive, neuropathique ou nociplastique)", parser: (obj, v) => obj.sensibilisationCentrale = v },
     { property: "deficit", keyText: "Déficit Sensorimotor", parser: (obj, v) => obj.deficit= v },
-    { property: "caractereSensations", keyText: "Caractère sensations", parser: (obj, v) => obj.caractereSensations = parseSensation(v) },
+    { property: "sensations", keyText: "Caractère sensations", parser: (obj, v) => obj.sensations = parseSensation(v) },
     { property: "observationsMecanismes", keyText: "Observations Mécanismes", parser: (obj, v) => obj.observationsMecanismes= v },
 ];
 
 
-//TODO more than one sensation possible
-function parseSensation(line: string):  Sensation {
+
+function parseSensation(line: string):  Sensation | string{
+    let sensationObj = new Sensation()
+
+    if(!line.includes("|")){
+        return line
+    }
+
     const parts = line.split(" | ");
-    let sensation: Sensation | undefined;
+
 
     for (const part of parts) {
         if (part.includes("☒")) {
             const value = part.replace(/☒|☐/g, "").trim();
-            if (isSensation(value)) {
-                sensation = value as Sensation;
-            }
+            CheckSensation(value,true,sensationObj)
         }
-
-
+        else{
+            CheckSensation(part.replace(/☒|☐/g, "").trim(),false,sensationObj)
+        }
     }
-    if (!sensation) throw new Error("No profession selected");
-    return  sensation;
+    return sensationObj
 }
 
-function isSensation(value: string): value is Sensation {
-  return (SENSATIONS as readonly string[]).includes(value);
+
+function CheckSensation(line : string,value : boolean,obj :Sensation) : Sensation{
+
+    if(line.includes("Sourde")){
+        obj.sourde = value
+    }
+    else if(line.includes("Aiguë")){
+        obj.aigue = value
+    }
+    else if(line.includes("Brûlante")){
+        obj.brulante = value
+    }
+    else if(line.includes("Irradiante")){
+        obj.irradiante = value
+    }
+     else if(line.includes("Engourdie")){
+         obj.engourdie = value
+    }
+    else if(line.includes("Piquante")){
+         obj.piquante = value
+    }
+    return obj
 }

@@ -4,20 +4,20 @@ import {InfoAdmin, infoAdminSchema} from "./models/SectionInfoAdmin"
 import {AntropoMetric, antropoMetricSchema} from "./models/SectionAntropometric"
 import { PathologieLombaire, pathologieLombaireSchema } from "./models/SectionPathologieLombaire";
 import { Symptome, symptomeSchema } from "./models/SectionSymptome";
-import { MecanismeDeDouleur, mecanismeDeDouleurSchema } from "./models/SectionMecanismeDouleur";
+import { MecanismeDeDouleur, mecanismeDeDouleurSchema } from "./models/SectionMecanismeDeDouleur";
 import { Satisfaction, satisfactionSchema } from "./models/SectionSatisfaction";
 import { Observation, observationSchema } from "./models/SectionObservationEtNotes";
 import { Hypothese,hypotheseSchema } from "./models/SectionHypothese";
 import { ControleQuality, controleQualitySchema } from "./models/SectionControleQuality";
 import { FonctioMobiNeuro, fonctioMobiNeuroSchema } from "./models/SectionTestsFonctioMobiNeuro";
 import { QuestionnaireValide, questionnaireValideSchema } from "./models/SectionQuestionnaireValide";
-import { MecanismeDouleur, mecanismeDouleurSchema } from "./models/MecanismeDouleurs";
-import { RedFlagAndPrecaution, redFlagAndPrecautionSchema } from "./models/RedFlagAndPrecaution";
-import { GestionAndRecommandations, gestionAndRecommandationsSchema } from "./models/GestionAndRecommandation";
-import { PerspectivesAndBelieves, perspectivesAndBelievesSchema } from "./models/PerspectivesAndBelieves";
-import { Pronostic, pronosticSchema } from "./models/Pronostic";
-import { ActivityAndParticipation, activityAndParticipationSchema } from "./models/ActivityAndParticipation";
-import { ContributingFactor, contributingFactorSchema } from "./models/ContributingFactors";
+import { MecanismeDouleur, mecanismeDouleurSchema } from "./models/SectionMecanismeDouleurs";
+import { RedFlagAndPrecaution, redFlagAndPrecautionSchema } from "./models/SectionRedFlagAndPrecaution";
+import { GestionAndRecommandations, gestionAndRecommandationsSchema } from "./models/SectionGestionAndRecommandation";
+import { PerspectivesAndBelieves, perspectivesAndBelievesSchema } from "./models/SectionPerspectivesAndBelieves";
+import { Pronostic, pronosticSchema } from "./models/SectionPronostic";
+import { ActivityAndParticipation, activityAndParticipationSchema } from "./models/SectionActivityAndParticipation";
+import { ContributingFactor, contributingFactorSchema } from "./models/SectionContributingFactors";
 
 import * as fs from 'fs';
 const Sections  = fs.readFileSync('file.txt','utf8').split("SECTION")
@@ -161,8 +161,8 @@ Sections.forEach(section => {
     // console.log(infoAdmin)
     // console.log(antropoMetric)
     // console.log(pathologieLombaire)
-    console.log(symptome)
-    // console.log(mecanismeDeDouleur)
+    // console.log(symptome)
+    console.log(mecanismeDeDouleur)
     // console.log(fonctioMobiNeuro)
     // console.log(satisfaction)
     // console.log(observationEtNotes)

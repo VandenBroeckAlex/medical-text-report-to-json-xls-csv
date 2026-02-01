@@ -1,3 +1,5 @@
+
+
 export class MecanismeDouleur{
     motifArticulaire ! : boolean
     motifMyofascial ! : boolean
